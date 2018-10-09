@@ -6,9 +6,10 @@ Home-page: UNKNOWN
 Author: Sam Oehlert
 Author-email: sam.oehlert@gmail.com
 License: UNKNOWN
-Description: # zfscheck
+Description: # zfs_check
         
         Check on the health of your ZFS pools proactively
+        
 Keywords: zfs health monitor
 Platform: UNKNOWN
 Classifier: Development Status :: 3 - Alpha
