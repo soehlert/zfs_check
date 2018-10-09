@@ -1,0 +1,7 @@
+README.md
+setup.py
+zfs_check.egg-info/PKG-INFO
+zfs_check.egg-info/SOURCES.txt
+zfs_check.egg-info/dependency_links.txt
+zfs_check.egg-info/entry_points.txt
+zfs_check.egg-info/top_level.txt

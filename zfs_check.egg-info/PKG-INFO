@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: zfs-check
+Version: 0.5.0
+Summary: Check on the health of your ZFS pools
+Home-page: UNKNOWN
+Author: Sam Oehlert
+Author-email: sam.oehlert@gmail.com
+License: UNKNOWN
+Description: # zfscheck
+        
+        Check on the health of your ZFS pools proactively
+Keywords: zfs health monitor
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: System :: Filesystems
+Classifier: Topic :: System :: Monitoring
+Description-Content-Type: text/markdown

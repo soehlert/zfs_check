@@ -1,0 +1,3 @@
+[console_scripts]
+zfs_check = sample:main
+
