@@ -8,7 +8,7 @@ with open(path.join(here, "README.md"), encoding="utf-8") as f:
 
 setup(
     name="zfs_check",
-    version="1.2.0",
+    version="0.5.0",
     description="Check on the health of your ZFS pools",
     long_description=long_description,
     long_description_content_type="text/markdown",
