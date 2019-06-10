@@ -28,6 +28,10 @@ setup(
         "Topic :: System :: Filesystems",
         "Topic :: System :: Monitoring",
     ],
+    install_requires=[
+        'slackclient'>=2,
+        'configparser'
+        ]
     keywords="zfs health monitor",
     py_modules=["zfs_check"],
     entry_points={"console_scripts": ["zfs_check=sample:main"]},
