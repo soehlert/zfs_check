@@ -31,7 +31,6 @@ def send_message(channel_id, message):
 
 def get_pools():
     """ Get the list of pools on the system """
-    #    raw_pools = os.popen("zpool list | awk '$2 ~ /^[0-9]/'").readlines()
     raw_pools = subprocess.Popen(
         ["zpool", "list"], encoding="UTF=8", stdout=subprocess.PIPE
     )
@@ -72,7 +71,6 @@ def get_pool_health(pool):
 
 def get_scrub_date(name, status):
     """ Check for last scrub time """
-    #    scrub_cmd = "zpool status {} | grep scrub | awk '{{ print $15 $12 $13}}'".format(pool_name)
     lines = list(status.split("\n"))
     for line in lines:
         line = line.strip()
@@ -139,6 +137,8 @@ def main():
         health_warning(name, capacity, health)
         scrub_date = get_scrub_date(name, get_pool_status(name))
         scrub_warning(name, scrub_date)
+
+    return
 
 
 if __name__ == "__main__":

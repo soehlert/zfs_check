@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: zfs-check
-Version: 0.5.2
+Version: 0.6.0
 Summary: Check on the health of your ZFS pools
 Home-page: UNKNOWN
 Author: Sam Oehlert
