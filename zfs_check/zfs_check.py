@@ -20,7 +20,7 @@ abbr_to_num = {name: num for num, name in enumerate(calendar.month_abbr) if num}
 
 
 def send_message(channel_id, message):
-    """ Post health issues to slack """
+    """ Post health issues to Slack. """
     slack_client.chat_postMessage(
         channel=channel_id,
         text=message,
@@ -30,7 +30,7 @@ def send_message(channel_id, message):
 
 
 def get_pools():
-    """ Get the list of pools on the system """
+    """ Get the list of pools on the system. """
     raw_pools = subprocess.Popen(
         ["zpool", "list"], encoding="UTF=8", stdout=subprocess.PIPE
     )
@@ -43,7 +43,7 @@ def get_pools():
 
 
 def get_pool_status(name):
-    """ Get ZFS status info """
+    """ Get the long status info on a zpool. """
     status = subprocess.run(
         ["zpool", "status", name], encoding="UTF-8", stdout=subprocess.PIPE
     )
@@ -52,7 +52,7 @@ def get_pool_status(name):
 
 
 def get_pool_short_status(name):
-    """ Get the short status info on a zpool """
+    """ Get the short status info on a zpool. """
     short_status = subprocess.run(
         ["zpool", "status", "-x", name], encoding="UTF-8", stdout=subprocess.PIPE
     )
@@ -61,7 +61,7 @@ def get_pool_short_status(name):
 
 
 def get_pool_health(pool):
-    """ Get ZFS list info """
+    """ Get ZFS list info. """
     pool_name = pool.split()[0]
     pool_capacity = pool.split()[6]
     pool_health = pool.split()[9]
@@ -70,7 +70,7 @@ def get_pool_health(pool):
 
 
 def get_scrub_date(name, status):
-    """ Check for last scrub time """
+    """ Get the last scrub time. """
     lines = list(status.split("\n"))
     for line in lines:
         line = line.strip()
@@ -87,7 +87,7 @@ def get_scrub_date(name, status):
 
 
 def pool_warning(name, short_status):
-    """ Check if we need to send a warning about pool status """
+    """ Check if we need to send a warning about pool status. """
     status_check = "pool '{}' is healthy".format(name)
     if short_status != status_check:
         pool_status = get_pool_status(name)
@@ -98,7 +98,7 @@ def pool_warning(name, short_status):
 
 
 def health_warning(name, capacity, health):
-    """ Check if we need to send a warning about pool health """
+    """ Check if we need to send a warning about pool health. """
     if capacity >= max_capacity:
         msg = "WARNING: Capacity over max limit {} on zpool: {}".format(capacity, name)
         send_message(slack_channel, msg)
@@ -111,7 +111,7 @@ def health_warning(name, capacity, health):
 
 
 def scrub_warning(name, scrub_date):
-    """ Check if scrub is within our window """
+    """ Check if scrub is within our window. """
     if scrub_date == "never":
         msg = "WARNING: zpool {} has never been scrubbed".format(name)
         send_message(slack_channel, msg)
